@@ -1,5 +1,6 @@
 import sqlite3
 from models.boek import Boek
+from models.klant import Klant
 
 def main():
     with sqlite3.connect("database.db") as conn:
