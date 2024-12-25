@@ -1,0 +1,21 @@
+# Virtual environment
+venv/
+
+# Cache-bestanden
+__pycache__/
+*.pyc
+*.pyo
+
+# Instellingenbestand (gevoelige data)
+settings.py
+
+# SQLite-database
+*.db
+
+# Logbestanden
+*.log
+
+# IDE-specifieke bestanden
+.vscode/
+.idea/
+*.swp
