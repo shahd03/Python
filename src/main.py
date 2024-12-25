@@ -2,7 +2,7 @@ import sqlite3
 from models.boek import Boek
 
 def main():
-    with sqlite3.connect("mijn_database.db") as conn:
+    with sqlite3.connect("database.db") as conn:
         while True:
             print("1. Voeg een boek toe")
             print("2. Bekijk alle boeken")
