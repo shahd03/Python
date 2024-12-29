@@ -1,4 +1,4 @@
-# Boekenbibliotheek
+# Bibliotheek Beheersysteem
 Dit is een eenvoudige applicatie waarmee je een boekenbibliotheek kan beheren.
 De applicatie stelt je in staat om boeken en klanten te beheren, en rapporten te genereren van je gegevens.
 
