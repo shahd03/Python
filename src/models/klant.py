@@ -31,3 +31,21 @@ class Klant:
             "naam": self.naam,
             "email": self.email
         }
+
+    def opslaan(self, conn):
+        """
+        Slaat een klant op in de database.
+
+        Args:
+            conn (sqlite3.Connection): De verbinding met de database.
+        """
+        try:
+            cursor = conn.cursor()
+            cursor.execute(
+                "INSERT INTO klanten (naam, email) VALUES (?, ?)", 
+                (self.naam, self.email)
+            )
+            conn.commit()
+            print("Klant succesvol opgeslagen.")
+        except Exception as e:
+            print(f"Fout bij het opslaan van de klant: {e}")
