@@ -2,7 +2,31 @@ import sqlite3
 from models.boek import Boek
 from models.klant import Klant
 
+def setup_database():
+    with sqlite3.connect("database.db") as conn:
+        cursor = conn.cursor()
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS boeken (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                titel TEXT NOT NULL,
+                auteur TEXT NOT NULL,
+                jaar INTEGER NOT NULL
+            );
+        """)
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS klanten (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                naam TEXT NOT NULL,
+                email TEXT NOT NULL UNIQUE
+            );
+        """)
+        conn.commit()
+        print("Database en tabellen zijn correct ingesteld.")
+
 def main():
+    # Zorg ervoor dat de database en tabellen goed zijn ingesteld voordat we verder gaan
+    setup_database()
+
     with sqlite3.connect("database.db") as conn:
         while True:
             print("\nMenu:")
@@ -23,6 +47,8 @@ def main():
                     print("Boek toegevoegd.")
                 except ValueError:
                     print("Fout: Het jaar moet een geldig getal zijn.")
+                except sqlite3.Error as e:
+                    print(f"Fout bij het opslaan van het boek: {e}")
 
             elif keuze == "2":
                 try:
