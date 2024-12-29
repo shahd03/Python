@@ -4,7 +4,7 @@ from models.klant import Klant
 
 def main():
     with sqlite3.connect("database.db") as conn:
-  while True:
+        while True:
             print("\nMenu:")
             print("1. Voeg een boek toe")
             print("2. Bekijk alle boeken")
@@ -41,9 +41,8 @@ def main():
                 naam = input("Naam: ")
                 email = input("E-mail: ")
                 try:
-                    cursor = conn.cursor()
-                    cursor.execute("INSERT INTO klanten (naam, email) VALUES (?, ?)", (naam, email))
-                    conn.commit()
+                    klant = Klant(naam, email)
+                    klant.opslaan(conn)
                     print("Klant toegevoegd.")
                 except sqlite3.Error as e:
                     print(f"Databasefout: {e}")
