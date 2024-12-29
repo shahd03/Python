@@ -6,7 +6,7 @@ Volg deze stappen om de applicatie op te zetten:
 1. Kloon de repository.
 2. Maak een virtuele omgeving (venv).
 3. Installeer de afhankelijkheden met pip install -r requirements.txt.
-4. Voer de database setup uit
+4. Voer de database uit met setup.py.
 5. Voer de applicatie uit met python main.py.
 
 ## Gebruik
